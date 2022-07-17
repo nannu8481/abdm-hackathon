@@ -1,14 +1,20 @@
 import { useQuery } from "react-query";
-import { instanceB } from "../services/axiosInstance";
+import { instanceB, instanceC } from "../services/axiosInstance";
 
-const useGet = (key, url, configs) => {
+const useGet = (key, url, configs, baseurl, bearerToken) => {
   const get = async () => {
     let headers;
-    const token = localStorage.getItem("_auth");
-    if (configs.token)
+    const getAccessToken = await window.localStorage.getItem("_token");
+
+    if (bearerToken) {
       headers = {
-        "Auth-token": token,
+        accessToken: getAccessToken,
       };
+    }
+    if (baseurl) {
+      const { data } = await instanceC.get(url, { headers });
+      return data;
+    }
     const { data } = await instanceB.get(url, { headers });
     return data;
   };

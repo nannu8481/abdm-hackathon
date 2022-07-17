@@ -4,6 +4,8 @@ import Otp from "../../pages/Otp";
 import UserInfoScreen from "../../pages/UserInfo";
 import HealthInfo from "../../components/userInformation/healthInfo";
 import Dashboard from "../../pages/Dashboard";
+import WalletScreens from "../../components/WalletScreens";
+import SearchResults from "../../pages/SearchResults";
 
 const Routes = () => {
   return (
@@ -14,6 +16,8 @@ const Routes = () => {
         <Route path="/user-details" element={<UserInfoScreen />} />
         <Route path="/user-heath-details" element={<HealthInfo />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/wallet-screen" element={<WalletScreens />} />
+        <Route path="/search-results" element={<SearchResults />} />
       </ReactRoutes>
     </BrowserRouter>
   );

@@ -2,7 +2,7 @@ import { useMutation } from "react-query";
 import { instanceB, instanceC } from "../services/axiosInstance";
 
 const post = async ({ url, payload, token = true, baseurl, bearerToken }) => {
-  const getCccessToken = await window.localStorage.getItem("_token");
+  const getAccessToken = await window.localStorage.getItem("_token");
   let headers;
   if (token) {
     headers = {
@@ -12,7 +12,7 @@ const post = async ({ url, payload, token = true, baseurl, bearerToken }) => {
   }
   if (bearerToken) {
     headers = {
-      accessToken: getCccessToken,
+      accessToken: getAccessToken,
     };
   }
   if (baseurl) {

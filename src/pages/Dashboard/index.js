@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import usePost from "../../hooks/usePost";
 import { LoaderContext } from "../../context/loaderContext";
 import Loader from "../../components/Loader";
+import Navbar from "../../components/Navbar";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -58,6 +59,7 @@ const Dashboard = () => {
           bearerToken: true,
           baseurl: true,
         });
+        navigate("/wallet-screen");
       } catch (error) {
         return { error: error.response.data.message };
       }
@@ -76,6 +78,7 @@ const Dashboard = () => {
   return (
     <>
       {loader && <Loader />}
+      <Navbar />
       <Wrapper>
         <form onSubmit={handleSubmit(handleClick)}>
           <h6 className="text">Help Campaign</h6>

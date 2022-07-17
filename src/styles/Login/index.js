@@ -68,4 +68,10 @@ const Wrapper = styled.div`
   }
 `;
 
-export { Wrapper };
+const OtpWrapper = styled.div`
+  input {
+    width: 2em !important;
+  }
+`;
+
+export { Wrapper, OtpWrapper };

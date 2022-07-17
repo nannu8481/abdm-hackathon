@@ -2,11 +2,12 @@ import React, { useState, useEffect, useContext } from "react";
 import OtpInput from "react-otp-input";
 import { useNavigate } from "react-router-dom";
 import usePost from "../../hooks/usePost";
-import { Wrapper } from "../../styles/Login";
+import { Wrapper, OtpWrapper } from "../../styles/Login";
 import { LoginValueContext } from "../../context/loginValueContext";
 import { LoaderContext } from "../../context/loaderContext";
 import Loader from "../Loader";
 import { getLocation } from "../../helpers/getLocation";
+import Navbar from "../Navbar";
 
 const OtpFlow = () => {
   const navigate = useNavigate();
@@ -84,15 +85,19 @@ const OtpFlow = () => {
   return (
     <>
       {loader && <Loader />}
+      <Navbar />
       <Wrapper>
         <div className="otpWrapper">
           <h6 className="text">Please enter otp</h6>
-          <OtpInput
-            value={value}
-            onChange={handleChange}
-            numInputs={6}
-            separator={<span>-</span>}
-          />
+          <OtpWrapper>
+            <OtpInput
+              value={value}
+              onChange={handleChange}
+              numInputs={6}
+              separator={<span>-</span>}
+            />
+          </OtpWrapper>
+
           <button
             disabled={value?.length > 5 ? false : true}
             className={value?.length > 5 ? "active button" : "disabled button"}
