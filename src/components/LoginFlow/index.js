@@ -7,7 +7,6 @@ import PhoneInput from "react-phone-number-input";
 import { LoginValueContext } from "../../context/loginValueContext";
 import { LoaderContext } from "../../context/loaderContext";
 import Loader from "../Loader";
-import Navbar from "../Navbar";
 
 const LoginFlow = () => {
   const navigate = useNavigate();
@@ -27,7 +26,11 @@ const LoginFlow = () => {
         token: true,
       });
       setLoginValue(getMobileOtp);
-      navigate("/get-otp");
+      navigate("/get-otp", {
+        state: {
+          mobileNumber: value,
+        },
+      });
     } catch (error) {
       return { error: error.response.data.message };
     }
@@ -41,7 +44,6 @@ const LoginFlow = () => {
   return (
     <>
       {loader && <Loader />}
-      <Navbar />
       <Wrapper>
         <form onSubmit={handleSubmit(onSubmit)}>
           <h6 className="text">Please enter your mobile number</h6>

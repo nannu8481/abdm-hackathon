@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <>
       <Wrapper>
-        <Text>Heath App</Text>
+        <Text>Health App</Text>
         <GoogleContainer id="google_translate_element"></GoogleContainer>
       </Wrapper>
     </>

@@ -32,6 +32,18 @@ const Wrapper = styled.div`
       opacity: 0.5;
     }
   }
+  .DonateBlood {
+    background: #000;
+    color: #fff;
+    border: none;
+    height: 38px;
+    font-size: 16px;
+    border-radius: 13px;
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    padding: 0 13px;
+  }
   .text {
     margin-top: 0;
     font-size: 15px;

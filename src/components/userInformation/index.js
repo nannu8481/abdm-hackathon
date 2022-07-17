@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Wrapper } from "../../styles/Login";
 import { UserInfoContext } from "../../context/userInforContext";
-import Navbar from "../Navbar";
 
 const UserInformation = () => {
   const navigate = useNavigate();
@@ -24,7 +23,6 @@ const UserInformation = () => {
 
   return (
     <>
-      <Navbar />
       <Wrapper>
         <form onSubmit={handleSubmit(onSubmit)}>
           <h6 className="text">Lets Complete Your Health Profile</h6>

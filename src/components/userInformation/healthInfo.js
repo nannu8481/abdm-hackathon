@@ -8,7 +8,6 @@ import { UserInfoContext } from "../../context/userInforContext";
 import { LoaderContext } from "../../context/loaderContext";
 import Loader from "../Loader";
 import Modal from "../../components/Modal";
-import Navbar from "../Navbar";
 
 const HealthInfo = () => {
   const navigate = useNavigate();
@@ -73,7 +72,6 @@ const HealthInfo = () => {
   return (
     <>
       {loader && <Loader />}
-      <Navbar />
       <Wrapper>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="relativeBloodGroup">

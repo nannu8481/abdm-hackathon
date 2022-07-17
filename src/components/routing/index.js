@@ -11,7 +11,7 @@ const Routes = () => {
   return (
     <BrowserRouter>
       <ReactRoutes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/get-otp" element={<Otp />} />
         <Route path="/user-details" element={<UserInfoScreen />} />
         <Route path="/user-heath-details" element={<HealthInfo />} />

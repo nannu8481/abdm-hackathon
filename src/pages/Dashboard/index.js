@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import usePost from "../../hooks/usePost";
 import { LoaderContext } from "../../context/loaderContext";
 import Loader from "../../components/Loader";
-import Navbar from "../../components/Navbar";
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -16,15 +15,20 @@ const Dashboard = () => {
 
   const handleClick = async (data) => {
     setData(data);
-    setLoader(true);
-    window.navigator.geolocation.getCurrentPosition(
-      successCallback,
-      failureCallback
-    );
   };
 
+  useEffect(() => {
+    if (getData) {
+      setLoader(true);
+      window.navigator.geolocation.getCurrentPosition(
+        successCallback,
+        failureCallback
+      );
+    }
+  }, [getData]);
+
   const successCallback = async (position) => {
-    console.log(position);
+    setLoader(false);
     setLoader(false);
     if (getData) {
       const updatedData = {
@@ -53,16 +57,31 @@ const Dashboard = () => {
         },
       };
       try {
-        await mutateAsync({
+        const reponse = await mutateAsync({
           url: "search",
           payload: updatedData,
           bearerToken: true,
           baseurl: true,
         });
+        window.localStorage.setItem("_transId", reponse?.transactionId);
         navigate("/wallet-screen");
       } catch (error) {
         return { error: error.response.data.message };
       }
+    }
+  };
+
+  const viewResulst = async () => {
+    try {
+      const response = await mutateAsync({
+        url: "view_requests",
+        // payload: updatedData,
+        bearerToken: true,
+        baseurl: true,
+      });
+      console.log("response", response);
+    } catch (error) {
+      return { error: error.response.data.message };
     }
   };
 
@@ -78,7 +97,6 @@ const Dashboard = () => {
   return (
     <>
       {loader && <Loader />}
-      <Navbar />
       <Wrapper>
         <form onSubmit={handleSubmit(handleClick)}>
           <h6 className="text">Help Campaign</h6>
@@ -100,8 +118,11 @@ const Dashboard = () => {
             </div>
           </div>
           <button className="button" type="submit">
-            Next
+            Submit
           </button>
+          <div className="DonateBlood" onClick={() => viewResulst()}>
+            Post Request to donate blood
+          </div>
         </form>
       </Wrapper>
     </>

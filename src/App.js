@@ -3,6 +3,7 @@ import Routes from "./components/routing";
 import { LoginValueContext } from "./context/loginValueContext";
 import { LoaderContext } from "./context/loaderContext";
 import { UserInfoContext } from "./context/userInforContext";
+import Layout from "./components/Layout";
 
 function App() {
   const [loginValue, setLoginValue] = useState(null);
@@ -12,7 +13,9 @@ function App() {
     <LoginValueContext.Provider value={{ loginValue, setLoginValue }}>
       <LoaderContext.Provider value={{ loader, setLoader }}>
         <UserInfoContext.Provider value={{ userInfo, setUserInfo }}>
-          <Routes />
+          <Layout>
+            <Routes />
+          </Layout>
         </UserInfoContext.Provider>
       </LoaderContext.Provider>
     </LoginValueContext.Provider>
