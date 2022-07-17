@@ -5,6 +5,7 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "react-phone-number-input/style.css";
+import "antd/dist/antd.css";
 
 const queryClient = new QueryClient();
 

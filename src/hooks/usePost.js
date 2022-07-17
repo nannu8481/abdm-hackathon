@@ -1,16 +1,24 @@
 import { useMutation } from "react-query";
-import { instance, instanceB } from "../services/axiosInstance";
+import { instanceB, instanceC } from "../services/axiosInstance";
 
-const post = async ({ url, payload, token = true }) => {
+const post = async ({ url, payload, token = true, baseurl, bearerToken }) => {
+  const getCccessToken = await window.localStorage.getItem("_token");
   let headers;
   if (token) {
-    // const authToken = localStorage.getItem("_auth");
     headers = {
       "Api-key": process.env.REACT_APP_API_KEY,
       "Content-Type": "application/json",
     };
   }
-  // 20-2387-1480-0580 abha number
+  if (bearerToken) {
+    headers = {
+      accessToken: getCccessToken,
+    };
+  }
+  if (baseurl) {
+    const { data } = await instanceC.post(url, payload, { headers });
+    return data;
+  }
   const { data } = await instanceB.post(url, payload, { headers });
   return data;
 };

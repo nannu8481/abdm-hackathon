@@ -8,4 +8,8 @@ const instanceB = axios.create({
   baseURL: process.env.REACT_APP_API_URL_B,
 });
 
-export { instance, instanceB };
+const instanceC = axios.create({
+  baseURL: process.env.REACT_APP_API_URL_C,
+});
+
+export { instance, instanceB, instanceC };

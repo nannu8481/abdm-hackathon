@@ -10,13 +10,13 @@ import Loader from "../Loader";
 
 const LoginFlow = () => {
   const navigate = useNavigate();
+  const { handleSubmit } = useForm();
   const { mutateAsync, isLoading } = usePost();
   const [value, setValue] = useState();
   const { setLoginValue } = useContext(LoginValueContext);
   const { loader, setLoader } = useContext(LoaderContext);
-  const { register, handleSubmit } = useForm();
+
   const onSubmit = async () => {
-    console.log(value);
     const payload = { username: value };
     // return;
     try {
@@ -27,8 +27,6 @@ const LoginFlow = () => {
       });
       setLoginValue(getMobileOtp);
       navigate("/get-otp");
-      console.log("getMobileOtp", getMobileOtp);
-      // return getMobileOtp;
     } catch (error) {
       return { error: error.response.data.message };
     }
@@ -52,7 +50,9 @@ const LoginFlow = () => {
               onChange={setValue}
             />
           </div>
-          <button type="submit">Submit</button>
+          <button className="button" type="submit">
+            Submit
+          </button>
         </form>
       </Wrapper>
     </>
