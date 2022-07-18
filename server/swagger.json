@@ -1,0 +1,472 @@
+{
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"GatewaySearchResponse": {
+				"properties": {
+					"success": {
+						"type": "boolean"
+					},
+					"error": {
+						"type": "boolean"
+					},
+					"data": {},
+					"message": {
+						"type": "string"
+					},
+					"transactionId": {
+						"type": "string"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"GatewaySearchRequest": {
+				"properties": {
+					"message": {}
+				},
+				"required": [
+					"message"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CreateUserResponse": {
+				"properties": {
+					"success": {
+						"type": "boolean"
+					},
+					"error": {
+						"type": "boolean"
+					},
+					"data": {},
+					"message": {
+						"type": "string"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"CreateUserRequest": {
+				"properties": {
+					"location": {
+						"type": "string"
+					},
+					"lat": {
+						"type": "string"
+					},
+					"long": {
+						"type": "string"
+					},
+					"phoneNumber": {
+						"type": "string"
+					},
+					"lastReportedDate": {
+						"type": "string"
+					},
+					"lastReportedTime": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"phoneNumber",
+					"lastReportedDate",
+					"lastReportedTime"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"UpdateBloodGroupResponse": {
+				"properties": {
+					"success": {
+						"type": "boolean"
+					},
+					"error": {
+						"type": "boolean"
+					},
+					"data": {},
+					"message": {
+						"type": "string"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"BloodGroupVC": {
+				"properties": {
+					"name": {
+						"type": "string"
+					},
+					"gender": {
+						"type": "string"
+					},
+					"dateOfBirth": {
+						"type": "string"
+					},
+					"referredByDoctor": {
+						"type": "string"
+					},
+					"sampleCollectionDate": {
+						"type": "string"
+					},
+					"sampleCollectionAt": {
+						"type": "string"
+					},
+					"date": {
+						"type": "string"
+					},
+					"bloodGroup": {
+						"type": "string"
+					},
+					"rhFactor": {
+						"type": "string"
+					},
+					"method": {
+						"type": "string"
+					},
+					"certificateIssueDate": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"name",
+					"dateOfBirth",
+					"bloodGroup"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"UpdateBloodGroupRequest": {
+				"properties": {
+					"bloodGroup": {
+						"$ref": "#/components/schemas/BloodGroupVC"
+					},
+					"relativeBloodGroup": {
+						"$ref": "#/components/schemas/BloodGroupVC"
+					}
+				},
+				"required": [
+					"bloodGroup"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"UpdateDonorResponse": {
+				"properties": {
+					"success": {
+						"type": "boolean"
+					},
+					"error": {
+						"type": "boolean"
+					},
+					"data": {},
+					"message": {
+						"type": "string"
+					}
+				},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"UpdateDonorRequest": {
+				"properties": {
+					"donor": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"donor"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "microservice-backend",
+		"version": "1.0.0",
+		"description": "microservice backend",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {
+			"name": "Abhijeet"
+		}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/get_requests": {
+			"post": {
+				"operationId": "GetRequests",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"tags": [
+					"GatewayManager"
+				],
+				"security": [
+					{
+						"accessToken": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "header",
+						"name": "accessToken",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"properties": {
+									"transactionId": {
+										"type": "string"
+									}
+								},
+								"required": [
+									"transactionId"
+								],
+								"type": "object"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/view_requests": {
+			"post": {
+				"operationId": "ViewRequests",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
+						}
+					}
+				},
+				"tags": [
+					"GatewayManager"
+				],
+				"security": [
+					{
+						"accessToken": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "header",
+						"name": "accessToken",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				]
+			}
+		},
+		"/search": {
+			"post": {
+				"operationId": "Search",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/GatewaySearchResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"GatewayManager"
+				],
+				"security": [
+					{
+						"accessToken": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "header",
+						"name": "accessToken",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/GatewaySearchRequest"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/users": {
+			"post": {
+				"operationId": "Createuser",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/CreateUserResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"UserManager"
+				],
+				"security": [
+					{
+						"accessToken": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "header",
+						"name": "accessToken",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/CreateUserRequest"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/users/update-blood-group": {
+			"post": {
+				"operationId": "UpdateBloodGroup",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UpdateBloodGroupResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"UserManager"
+				],
+				"security": [
+					{
+						"accessToken": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "header",
+						"name": "accessToken",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UpdateBloodGroupRequest"
+							}
+						}
+					}
+				}
+			}
+		},
+		"/users/update-donor": {
+			"post": {
+				"operationId": "UpdateDonorIntent",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/UpdateDonorResponse"
+								}
+							}
+						}
+					}
+				},
+				"tags": [
+					"UserManager"
+				],
+				"security": [
+					{
+						"accessToken": []
+					}
+				],
+				"parameters": [
+					{
+						"in": "header",
+						"name": "accessToken",
+						"required": true,
+						"schema": {
+							"type": "string"
+						}
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/UpdateDonorRequest"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/"
+		}
+	]
+}
