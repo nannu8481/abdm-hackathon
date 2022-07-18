@@ -1,6 +1,6 @@
 # UHI Innovation Challenge - Affinidi India ReadMe
 
-This library allows you to seamlessly integrate the Affinidi Universal Loan Application in your client-side application.
+Patient centric programmable Wallet to hold verifiable credentials and enable transaction flow on the UHI network which discovers Blood Donor Channels via UHI Open Network.
 
 ## Installing the dependencies
 
@@ -30,7 +30,7 @@ MONGODB_USER="..."
 MONGODB_PASS="..."
 MONGODB_HOST="..."
 MONGODB_DATABASE="..."
-CLOUD_WALLET_URL=https://cloud-wallet-api.staging.affinity-project.org/api/v1
+CLOUD_WALLET_URL=https://cloud-wallet-api.{env}.affinity-project.org/api/v1
 CLOUD_WALLET_API_KEY="..." // Need to generate from Affinidi's Website
 CLOUD_WALLET_ENV={env}
 EUA_GATEWAY_URL=http://121.242.73.120:8083/api/v1
