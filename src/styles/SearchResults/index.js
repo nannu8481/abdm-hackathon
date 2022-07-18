@@ -6,4 +6,18 @@ const Wrapper = styled.div`
   }
 `;
 
-export { Wrapper };
+const Section = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 17px;
+  padding: 10px 20px;
+  .card {
+    background: #eee;
+    padding: 12px;
+    h3 {
+      font-size: 13px;
+    }
+  }
+`;
+
+export { Wrapper, Section };
