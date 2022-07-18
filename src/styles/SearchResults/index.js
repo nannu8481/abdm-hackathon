@@ -14,6 +14,7 @@ const Section = styled.div`
   .card {
     background: #eee;
     padding: 12px;
+    cursor: pointer;
     h3 {
       font-size: 13px;
     }

@@ -6,6 +6,7 @@ import HealthInfo from "../../components/userInformation/healthInfo";
 import Dashboard from "../../pages/Dashboard";
 import WalletScreens from "../../components/WalletScreens";
 import SearchResults from "../../pages/SearchResults";
+import BookAppointment from "../../pages/BookAppointment";
 
 const Routes = () => {
   return (
@@ -18,6 +19,7 @@ const Routes = () => {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/wallet-screen" element={<WalletScreens />} />
         <Route path="/search-results" element={<SearchResults />} />
+        <Route path="/book-appointment" element={<BookAppointment />} />
       </ReactRoutes>
     </BrowserRouter>
   );
