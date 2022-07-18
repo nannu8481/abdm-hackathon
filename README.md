@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Affinidi UAF Client Lib [ Frontend Integration ]
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This library allows you to seamlessly integrate the Affinidi Universal Loan Application in your client-side application.
 
-## Available Scripts
+## Installing the dependencies
 
-In the project directory, you can run:
+In the root directory, run the `npm i` command to install all the client-related libraries.
+To install the server related dependencies, go into the server folder and install using the `npm i` command.
 
-### `npm start`
+## Set up the environment variables
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Both the client-side app and server-side app needs environment variables to be setup.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Client-side variables
 
-### `npm test`
+```shell script
+REACT_APP_AFF_CLOUD_GATEWAY = "https://cloud-wallet-api.{env}.affinity-project.org/api/v1/"
+REACT_APP_BACKEND_URL = "http://localhost:3001/" // if PORT for backend is set to 3001
+REACT_APP_API_KEY = "..." // Need to generate from Affinidi's Website
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Server-side variables
 
-### `npm run build`
+```shell script
+HOST=localhost
+PORT=3001
+NODE_ENV=development
+ENVIRONMENT=development
+MONGODB_USER="..."
+MONGODB_PASS="..."
+MONGODB_HOST="..."
+MONGODB_DATABASE="..."
+CLOUD_WALLET_URL=https://cloud-wallet-api.staging.affinity-project.org/api/v1
+CLOUD_WALLET_API_KEY="..." // Need to generate from Affinidi's Website
+CLOUD_WALLET_ENV={env}
+EUA_GATEWAY_URL=http://121.242.73.120:8083/api/v1
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Starting the service
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+After the environment variables are set, the application can be easily started. Inside of the `server` folder, run the command `npm run dev`. Once server is running and the MongoDB instance is connected, we can run the client-side using `npm start`.
