@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import usePost from "../../hooks/usePost";
 import { Wrapper, Section } from "../../styles/SearchResults";
 import { LoaderContext } from "../../context/loaderContext";
 import Loader from "../../components/Loader";
 
 const SearchResults = () => {
+  const navigate = useNavigate();
   const { loader, setLoader } = useContext(LoaderContext);
   const { mutateAsync, isLoading } = usePost();
   const [data, setData] = useState(null);
@@ -42,7 +44,17 @@ const SearchResults = () => {
         <Section>
           {data?.map((item, index) => {
             return (
-              <div className="card">
+              <div
+                key={index}
+                onClick={() =>
+                  navigate("/book-appointment", {
+                    state: {
+                      data: item,
+                    },
+                  })
+                }
+                className="card"
+              >
                 <h3>phone number : {item?.phoneNumber}</h3>
                 {/* <h3>blood group: {item?.bloodGroup}</h3> */}
                 <h3>name: {item?.name}</h3>
