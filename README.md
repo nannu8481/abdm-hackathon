@@ -1,4 +1,4 @@
-# Affinidi UAF Client Lib [ Frontend Integration ]
+# UHI Innovation Challenge - Affinidi India ReadMe
 
 This library allows you to seamlessly integrate the Affinidi Universal Loan Application in your client-side application.
 
