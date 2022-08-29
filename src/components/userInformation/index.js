@@ -26,7 +26,7 @@ const UserInformation = () => {
       <Wrapper>
         <form onSubmit={handleSubmit(onSubmit)}>
           <h6 className="text">Lets Complete Your Health Profile</h6>
-          <div>
+          <div className="formInfo">
             <div>
               <h6 className="title">Please enter name</h6>
               <input {...register("name")} placeholder="enter name" />

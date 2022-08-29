@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { MainWrapper } from "../../styles/Login";
 
 const BookAppointment = () => {
   const location = useLocation();
@@ -10,15 +11,17 @@ const BookAppointment = () => {
     setUserData(location?.state?.data);
   });
   return (
-    <>
+    <MainWrapper>
       <h1>Please book your appointent</h1>
       <div>
-        Book your appointment with <b>{userData?.name}</b>
+        <div className="heading">
+          Book your appointment with <b>{userData?.name}</b>
+        </div>
+        <button onClick={() => alert("booked")}>
+          Click here to book your appoinment
+        </button>
       </div>
-      <button onClick={() => alert("booked")}>
-        Click here to book your appoinment
-      </button>
-    </>
+    </MainWrapper>
   );
 };
 

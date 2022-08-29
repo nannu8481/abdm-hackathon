@@ -99,22 +99,22 @@ const Dashboard = () => {
       {loader && <Loader />}
       <Wrapper>
         <form onSubmit={handleSubmit(handleClick)}>
-          <h6 className="text">Help Campaign</h6>
-          <div>
+          <h4 className="text">Help Campaign</h4>
+          <div className="formInfo">
             <div>
-              <h6 className="title">Please enter bloodgroup</h6>
+              <h3 className="title">Please enter bloodgroup</h3>
               <input
                 {...register("bloodGroup")}
-                placeholder="enter bloodgroup"
+                placeholder="Enter bloodgroup"
               />
             </div>
             <div>
               <h6 className="title">Please enter address</h6>
-              <input {...register("address")} placeholder="enter address" />
+              <input {...register("address")} placeholder="nter address" />
             </div>
             <div>
               <h6 className="title">Please enter radius</h6>
-              <input {...register("radius")} placeholder="enter radius" />
+              <input {...register("radius")} placeholder="Enter radius" />
             </div>
           </div>
           <button className="button" type="submit">

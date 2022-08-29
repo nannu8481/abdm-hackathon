@@ -94,7 +94,7 @@ const OtpFlow = () => {
               value={value}
               onChange={handleChange}
               numInputs={6}
-              separator={<span>-</span>}
+              separator={<span> - </span>}
             />
           </OtpWrapper>
 

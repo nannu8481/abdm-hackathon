@@ -79,7 +79,7 @@ const HealthInfo = () => {
             <span onClick={() => setShow(!show)}>{show ? "-" : "+"}</span>
           </div>
           {show && (
-            <div>
+            <div className="formInfo">
               <div>
                 <h6 className="title">Please enter name</h6>
                 <input {...register("name")} placeholder="enter name" />

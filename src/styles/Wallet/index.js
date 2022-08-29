@@ -27,10 +27,12 @@ const GoogleContainer = styled.div`
     text-align: center;
     color: #363b97;
     font-family: "poppinssemibold";
+    padding: 0 10px;
   }
 
-  .goog-te-gadget .goog-te-combo {
-    margin-top: 20px;
+  .goog-te-gadget {
+    padding: 0 20px;
+    color: #fff;
   }
 `;
 

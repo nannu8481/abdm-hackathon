@@ -25,6 +25,7 @@ const LoginFlow = () => {
         payload: payload,
         token: true,
       });
+      console.log("getMobileOtp", getMobileOtp);
       setLoginValue(getMobileOtp);
       navigate("/get-otp", {
         state: {
@@ -46,17 +47,17 @@ const LoginFlow = () => {
       {loader && <Loader />}
       <Wrapper>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <h6 className="text">Please enter your mobile number</h6>
-          <div>
+          <h4 className="text">Please enter your mobile number</h4>
+          <div className="formInfo">
             <PhoneInput
               placeholder="Enter phone number"
               value={value}
               onChange={setValue}
             />
+            <button className="button" type="submit">
+              Submit
+            </button>
           </div>
-          <button className="button" type="submit">
-            Submit
-          </button>
         </form>
       </Wrapper>
     </>
