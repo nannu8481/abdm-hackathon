@@ -25,7 +25,6 @@ const LoginFlow = () => {
         payload: payload,
         token: true,
       });
-      console.log("getMobileOtp", getMobileOtp);
       setLoginValue(getMobileOtp);
       navigate("/get-otp", {
         state: {
